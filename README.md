@@ -2,7 +2,7 @@
   <img src="assets/header.svg" width="100%" alt="JaJa Banner">
 </p>
 
-# 💲JaJa
+# 💲JaJa-Creations
 <p>
   Hello, I am JaJa.<br>
   (more Infos comming soon...)
