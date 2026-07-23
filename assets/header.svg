@@ -1,0 +1,118 @@
+<svg width="1600" height="450" viewBox="0 0 1600 450" xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#dff6ff">
+        <animate attributeName="stop-color"
+                 values="#dff6ff;#cceeff;#e8fbff;#dff6ff"
+                 dur="10s"
+                 repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#7dd3fc">
+        <animate attributeName="stop-color"
+                 values="#7dd3fc;#60a5fa;#93c5fd;#7dd3fc"
+                 dur="10s"
+                 repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <linearGradient id="textGradient" x1="0%" x2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#eefaff"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Hintergrund -->
+  <rect width="1600" height="450" fill="url(#bg)"/>
+
+  <!-- Kreise -->
+  <g opacity="0.35">
+    <circle cx="200" cy="120" r="60" fill="#ffffff">
+      <animate attributeName="cy"
+               values="120;95;120"
+               dur="7s"
+               repeatCount="indefinite"/>
+    </circle>
+
+    <circle cx="1400" cy="330" r="80" fill="#b9ecff">
+      <animate attributeName="cy"
+               values="330;300;330"
+               dur="8s"
+               repeatCount="indefinite"/>
+    </circle>
+
+    <circle cx="1200" cy="90" r="35" fill="#ffffff">
+      <animate attributeName="cy"
+               values="90;70;90"
+               dur="5s"
+               repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- Wellen -->
+  <path fill="#ffffff55">
+    <animate attributeName="d"
+      dur="8s"
+      repeatCount="indefinite"
+      values="
+      M0,320 C300,260 600,380 900,320 C1200,260 1450,350 1600,300 L1600,450 L0,450 Z;
+      M0,300 C300,350 600,250 900,340 C1200,430 1450,250 1600,330 L1600,450 L0,450 Z;
+      M0,320 C300,260 600,380 900,320 C1200,260 1450,350 1600,300 L1600,450 L0,450 Z"/>
+  </path>
+
+  <!-- Glow -->
+  <ellipse cx="800" cy="225" rx="360" ry="90"
+           fill="#8fdcff33"
+           filter="url(#glow)">
+    <animate attributeName="rx"
+             values="340;380;340"
+             dur="5s"
+             repeatCount="indefinite"/>
+  </ellipse>
+
+  <!-- Titel -->
+  <text x="50%" y="50%"
+        dominant-baseline="middle"
+        text-anchor="middle"
+        font-size="120"
+        font-family="Segoe UI, Arial, sans-serif"
+        font-weight="700"
+        fill="url(#textGradient)"
+        filter="url(#glow)"
+        letter-spacing="8">
+
+    JaJa
+
+    <animate attributeName="opacity"
+             values="0.92;1;0.92"
+             dur="3s"
+             repeatCount="indefinite"/>
+  </text>
+
+  <!-- Untertitel -->
+  <text x="50%" y="69%"
+        dominant-baseline="middle"
+        text-anchor="middle"
+        font-size="28"
+        font-family="Segoe UI, Arial"
+        fill="#ffffff"
+        opacity="0.9">
+
+    Developer • Programmer • Creator
+
+    <animate attributeName="opacity"
+             values="0.6;1;0.6"
+             dur="4s"
+             repeatCount="indefinite"/>
+  </text>
+
+</svg>
