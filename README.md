@@ -3,3 +3,7 @@
 </p>
 
 # 💲JaJa-Creations
+<p>
+  Hello, I am JaJa.
+  (more Infos comming soon...)
+</p>
