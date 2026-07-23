@@ -31,10 +31,8 @@
     </linearGradient>
   </defs>
 
-  <!-- Hintergrund -->
   <rect width="1600" height="450" fill="url(#bg)"/>
 
-  <!-- Kreise -->
   <g opacity="0.35">
     <circle cx="200" cy="120" r="60" fill="#ffffff">
       <animate attributeName="cy"
@@ -58,7 +56,6 @@
     </circle>
   </g>
 
-  <!-- Wellen -->
   <path fill="#ffffff55">
     <animate attributeName="d"
       dur="8s"
@@ -69,7 +66,6 @@
       M0,320 C300,260 600,380 900,320 C1200,260 1450,350 1600,300 L1600,450 L0,450 Z"/>
   </path>
 
-  <!-- Glow -->
   <ellipse cx="800" cy="225" rx="360" ry="90"
            fill="#8fdcff33"
            filter="url(#glow)">
@@ -79,7 +75,6 @@
              repeatCount="indefinite"/>
   </ellipse>
 
-  <!-- Titel -->
   <text x="50%" y="50%"
         dominant-baseline="middle"
         text-anchor="middle"
@@ -98,7 +93,6 @@
              repeatCount="indefinite"/>
   </text>
 
-  <!-- Untertitel -->
   <text x="50%" y="69%"
         dominant-baseline="middle"
         text-anchor="middle"
@@ -107,7 +101,7 @@
         fill="#ffffff"
         opacity="0.9">
 
-    Developer • Programmer • Creator
+    Developer • Securety • Local AI • Linux
 
     <animate attributeName="opacity"
              values="0.6;1;0.6"
