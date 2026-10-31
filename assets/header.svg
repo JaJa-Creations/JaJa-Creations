@@ -7,7 +7,9 @@
 .name{fill:#1f2430;font-family:JetBrains Mono,Consolas,monospace;font-size:40px;font-weight:bold}
 .kw{fill:#1f2430;font-family:JetBrains Mono,Consolas,monospace;font-size:15px;opacity:.75}
 .line{stroke:#4F8DFF;stroke-width:3;fill:none;stroke-linecap:round}
-.lockb{fill:#f7f8fa;stroke:#4F8DFF;stroke-width:3}
+.ghost{stroke:#4F8DFF;stroke-width:1.5;fill:none;opacity:.35;stroke-linecap:round}
+.body{fill:#f7f8fa;stroke:none}
+.blue-fill{fill:#4F8DFF}
 </style>
 
 <defs>
@@ -16,9 +18,9 @@
        underline grow in lockstep. Ease-in/out via keySplines; hold at the
        end before the cycle restarts. -->
   <clipPath id="type">
-    <rect x="60" y="105" width="470" height="52">
+    <rect x="60" y="105" width="380" height="52">
       <animate attributeName="width" calcMode="spline"
-        values="0;0;470;470" keyTimes="0;0.12;0.5;1"
+        values="0;0;380;380" keyTimes="0;0.12;0.5;1"
         keySplines="0 0 1 1;0.4 0 0.6 1;0 0 1 1"
         dur="5s" repeatCount="indefinite"/>
     </rect>
@@ -40,21 +42,35 @@
     values="1;1;1;0" keyTimes="0;0.5;0.86;1"
     keySplines="0 0 1 1;0 0 1 1;0.4 0 1 1"
     dur="5s" repeatCount="indefinite"/>
-  <text class="ink" x="60" y="140" font-size="30" textLength="470" lengthAdjust="spacingAndGlyphs">I love open source</text>
-  <rect class="blue" x="60" y="152" width="470" height="3" rx="1.5"/>
+  <text class="ink" x="60" y="140" font-size="30">I love open source!</text>
+  <rect class="blue" x="60" y="152" width="345" height="3" rx="1.5"/>
 </g>
 
-<!-- open padlock emblem: open shackle (right leg floats above the body),
-     shackle gets a slow lift cycle; static shape already reads as "open" -->
+<!-- padlock, redrawn as a hand sketch: shackle arches OVER the top via
+     explicit curves (the old arc sagged into the body because of sweep
+     flag 0), right leg clearly detached and floating 16px above the body
+     = reads unambiguously "open". Ghost line + corner overshoots give a
+     hand-drawn feel instead of a clean generic icon look. -->
 <g id="lock">
-  <path class="line" d="M728 102 L728 64 A20 20 0 0 0 768 64 L768 54">
+  <g id="shackle">
     <animateTransform attributeName="transform" type="translate"
       values="0 0;0 -7;0 0" keyTimes="0;0.45;1"
       keySplines="0.42 0 0.58 1;0.42 0 0.58 1" calcMode="spline"
       dur="4s" repeatCount="indefinite"/>
-  </path>
-  <rect class="lockb" x="716" y="100" width="64" height="80" rx="10"/>
+    <path class="line" d="M730 102 C 727 84 727 72 729 62 C 733 47 761 46 766 58 C 769 66 771 74 772 84"/>
+    <path class="ghost" d="M733 103 C 730 86 730 74 732 64 C 738 49 763 48 770 60 C 773 68 775 76 776 86"/>
+  </g>
+  <!-- body fill first: covers the shackle leg bases so the open gap stays clean -->
+  <path class="body" d="M716 101 C 740 103 760 102 780 104 C 783 126 781 156 779 180 C 758 182 738 181 716 179 C 713 155 716 127 716 100 Z"/>
+  <!-- four sketch sides, each overshooting its corners like marker strokes -->
+  <path class="line" d="M712 103 C 738 100 760 102 784 104"/>
+  <path class="line" d="M781 99 C 783 126 780 156 781 184"/>
+  <path class="line" d="M784 181 C 758 184 738 183 712 183"/>
+  <path class="line" d="M715 187 C 713 158 715 128 714 98"/>
+  <path class="ghost" d="M719 105 C 742 106 762 105 783 107 M784 102 C 786 130 783 158 784 186 M786 184 C 760 187 741 186 715 186 M718 189 C 716 158 718 130 717 101"/>
+  <!-- keyhole: dot + short stem -->
   <circle class="blue" cx="748" cy="140" r="5"/>
+  <path class="blue-fill" d="M745 140 L 751 140 L 749 152 L 747 152 Z"/>
 </g>
 
 <!-- keyword row -->
