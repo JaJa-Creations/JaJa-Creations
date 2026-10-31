@@ -1,0 +1,29 @@
+<svg width="900" height="70" viewBox="0 0 900 70" xmlns="http://www.w3.org/2000/svg">
+
+<style>
+.card{fill:#f7f8fa}
+.chip{fill:#eef2f8}
+.label{fill:#1f2430;font-family:JetBrains Mono,Consolas,monospace;font-size:18px}
+</style>
+
+<rect class="card" width="900" height="70" rx="14"/>
+
+<rect class="chip" x="95"  y="15" width="44"  height="40" rx="8"/>
+<text class="label" x="117" y="40" text-anchor="middle">C</text>
+
+<rect class="chip" x="163" y="15" width="94"  height="40" rx="8"/>
+<text class="label" x="210" y="40" text-anchor="middle">Python</text>
+
+<rect class="chip" x="281" y="15" width="138" height="40" rx="8"/>
+<text class="label" x="350" y="40" text-anchor="middle">JavaScript</text>
+
+<rect class="chip" x="443" y="15" width="72"  height="40" rx="8"/>
+<text class="label" x="479" y="40" text-anchor="middle">Java</text>
+
+<rect class="chip" x="539" y="15" width="116" height="40" rx="8"/>
+<text class="label" x="597" y="40" text-anchor="middle">HTML/CSS</text>
+
+<rect class="chip" x="679" y="15" width="127" height="40" rx="8"/>
+<text class="label" x="742" y="40" text-anchor="middle">Git/Linux</text>
+
+</svg>

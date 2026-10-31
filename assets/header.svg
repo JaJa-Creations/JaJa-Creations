@@ -1,1 +1,59 @@
-test
+<svg width="900" height="220" viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg">
+
+<style>
+.card{fill:#f7f8fa}
+.ink{fill:#1f2430;font-family:JetBrains Mono,Consolas,monospace}
+.blue{fill:#4F8DFF}
+.name{fill:#1f2430;font-family:JetBrains Mono,Consolas,monospace;font-size:40px;font-weight:bold}
+.kw{fill:#1f2430;font-family:JetBrains Mono,Consolas,monospace;font-size:15px;opacity:.75}
+.line{stroke:#4F8DFF;stroke-width:3;fill:none;stroke-linecap:round}
+.lockb{fill:#f7f8fa;stroke:#4F8DFF;stroke-width:3}
+</style>
+
+<defs>
+  <!-- Typewriter reveal: static width=470 keeps the FULL sentence visible
+       on renderers that drop SMIL (GitHub camo); the animation drives the
+       reveal from 0 to 470 in discrete monospace steps (one char = 26px). -->
+  <clipPath id="type">
+    <rect x="55" y="105" width="470" height="52">
+      <animate attributeName="width" calcMode="discrete"
+        values="0;26;52;78;104;130;156;182;208;234;260;286;312;338;364;390;416;442;470;470"
+        dur="5s" repeatCount="indefinite"/>
+    </rect>
+  </clipPath>
+</defs>
+
+<!-- light card -->
+<rect class="card" width="900" height="220" rx="18"/>
+
+<!-- name block, static -->
+<text class="name" x="60" y="70">JaJa</text>
+<rect class="blue" x="60" y="86" width="150" height="3" rx="1.5"/>
+
+<!-- typed sentence, revealed letter by letter -->
+<g clip-path="url(#type)">
+  <text class="ink" x="60" y="140" font-size="30" textLength="470" lengthAdjust="spacingAndGlyphs">I love open source</text>
+</g>
+
+<!-- accent underline grows in the same steps as the typing -->
+<rect class="blue" x="60" y="152" width="470" height="3" rx="1.5">
+  <animate attributeName="width" calcMode="discrete"
+    values="0;26;52;78;104;130;156;182;208;234;260;286;312;338;364;390;416;442;470;470"
+    dur="5s" repeatCount="indefinite"/>
+</rect>
+
+<!-- open padlock emblem: open shackle (right leg floats above the body),
+     shackle gets a slow lift cycle; static shape already reads as "open" -->
+<g id="lock">
+  <path class="line" d="M728 102 L728 64 A20 20 0 0 0 768 64 L768 54">
+    <animateTransform attributeName="transform" type="translate"
+      values="0 0;0 -6;0 0" dur="3s" repeatCount="indefinite"/>
+  </path>
+  <rect class="lockb" x="716" y="100" width="64" height="80" rx="10"/>
+  <circle class="blue" cx="748" cy="140" r="5"/>
+</g>
+
+<!-- keyword row -->
+<text class="kw" x="60" y="192">development · security · local AI · linux</text>
+
+</svg>
