@@ -11,13 +11,15 @@
 </style>
 
 <defs>
-  <!-- Typewriter reveal: static width=470 keeps the FULL sentence visible
-       on renderers that drop SMIL (GitHub camo); the animation drives the
-       reveal from 0 to 470 in discrete monospace steps (one char = 26px). -->
+  <!-- Reveal: static width=470 keeps the FULL sentence visible on renderers
+       that drop SMIL. Clip x matches the text x (60), so the wipe and the
+       underline grow in lockstep. Ease-in/out via keySplines; hold at the
+       end before the cycle restarts. -->
   <clipPath id="type">
-    <rect x="55" y="105" width="470" height="52">
-      <animate attributeName="width" calcMode="discrete"
-        values="0;26;52;78;104;130;156;182;208;234;260;286;312;338;364;390;416;442;470;470"
+    <rect x="60" y="105" width="470" height="52">
+      <animate attributeName="width" calcMode="spline"
+        values="0;0;470;470" keyTimes="0;0.12;0.5;1"
+        keySplines="0 0 1 1;0.4 0 0.6 1;0 0 1 1"
         dur="5s" repeatCount="indefinite"/>
     </rect>
   </clipPath>
@@ -30,24 +32,26 @@
 <text class="name" x="60" y="70">JaJa</text>
 <rect class="blue" x="60" y="86" width="150" height="3" rx="1.5"/>
 
-<!-- typed sentence, revealed letter by letter -->
+<!-- sentence + underline share ONE clipped group: the reveal drives both
+     identically, so the underline can never lead or lag the text.
+     Group fades out at the end of the cycle so the loop restarts softly. -->
 <g clip-path="url(#type)">
-  <text class="ink" x="60" y="140" font-size="30" textLength="470" lengthAdjust="spacingAndGlyphs">I love open source</text>
-</g>
-
-<!-- accent underline grows in the same steps as the typing -->
-<rect class="blue" x="60" y="152" width="470" height="3" rx="1.5">
-  <animate attributeName="width" calcMode="discrete"
-    values="0;26;52;78;104;130;156;182;208;234;260;286;312;338;364;390;416;442;470;470"
+  <animate attributeName="opacity" calcMode="spline"
+    values="1;1;1;0" keyTimes="0;0.5;0.86;1"
+    keySplines="0 0 1 1;0 0 1 1;0.4 0 1 1"
     dur="5s" repeatCount="indefinite"/>
-</rect>
+  <text class="ink" x="60" y="140" font-size="30" textLength="470" lengthAdjust="spacingAndGlyphs">I love open source</text>
+  <rect class="blue" x="60" y="152" width="470" height="3" rx="1.5"/>
+</g>
 
 <!-- open padlock emblem: open shackle (right leg floats above the body),
      shackle gets a slow lift cycle; static shape already reads as "open" -->
 <g id="lock">
   <path class="line" d="M728 102 L728 64 A20 20 0 0 0 768 64 L768 54">
     <animateTransform attributeName="transform" type="translate"
-      values="0 0;0 -6;0 0" dur="3s" repeatCount="indefinite"/>
+      values="0 0;0 -7;0 0" keyTimes="0;0.45;1"
+      keySplines="0.42 0 0.58 1;0.42 0 0.58 1" calcMode="spline"
+      dur="4s" repeatCount="indefinite"/>
   </path>
   <rect class="lockb" x="716" y="100" width="64" height="80" rx="10"/>
   <circle class="blue" cx="748" cy="140" r="5"/>
