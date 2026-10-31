@@ -7,13 +7,11 @@
 .name{fill:#1f2430;font-family:JetBrains Mono,Consolas,monospace;font-size:40px;font-weight:bold}
 .kw{fill:#1f2430;font-family:JetBrains Mono,Consolas,monospace;font-size:15px;opacity:.75}
 .line{stroke:#4F8DFF;stroke-width:3;fill:none;stroke-linecap:round}
-.ghost{stroke:#4F8DFF;stroke-width:1.5;fill:none;opacity:.35;stroke-linecap:round}
-.body{fill:#f7f8fa;stroke:none}
-.blue-fill{fill:#4F8DFF}
+.lockb{fill:#f7f8fa;stroke:#4F8DFF;stroke-width:3}
 </style>
 
 <defs>
-  <!-- Reveal: static width=470 keeps the FULL sentence visible on renderers
+  <!-- Reveal: static width=380 keeps the FULL sentence visible on renderers
        that drop SMIL. Clip x matches the text x (60), so the wipe and the
        underline grow in lockstep. Ease-in/out via keySplines; hold at the
        end before the cycle restarts. -->
@@ -32,7 +30,7 @@
 
 <!-- name block, static -->
 <text class="name" x="60" y="70">JaJa</text>
-<rect class="blue" x="60" y="86" width="150" height="3" rx="1.5"/>
+<rect class="blue" x="60" y="86" width="96" height="3" rx="1.5"/>
 
 <!-- sentence + underline share ONE clipped group: the reveal drives both
      identically, so the underline can never lead or lag the text.
@@ -46,31 +44,20 @@
   <rect class="blue" x="60" y="152" width="345" height="3" rx="1.5"/>
 </g>
 
-<!-- padlock, redrawn as a hand sketch: shackle arches OVER the top via
-     explicit curves (the old arc sagged into the body because of sweep
-     flag 0), right leg clearly detached and floating 16px above the body
-     = reads unambiguously "open". Ghost line + corner overshoots give a
-     hand-drawn feel instead of a clean generic icon look. -->
+<!-- padlock: clean professional geometry. Arc uses sweep flag 1, which
+     runs the semicircle OVER the top (flag 0 sagged into the body).
+     Right leg stops at y=88, 12px above the body top (100) = open. -->
 <g id="lock">
   <g id="shackle">
     <animateTransform attributeName="transform" type="translate"
-      values="0 0;0 -7;0 0" keyTimes="0;0.45;1"
+      values="0 0;0 -6;0 0" keyTimes="0;0.45;1"
       keySplines="0.42 0 0.58 1;0.42 0 0.58 1" calcMode="spline"
       dur="4s" repeatCount="indefinite"/>
-    <path class="line" d="M730 102 C 727 84 727 72 729 62 C 733 47 761 46 766 58 C 769 66 771 74 772 84"/>
-    <path class="ghost" d="M733 103 C 730 86 730 74 732 64 C 738 49 763 48 770 60 C 773 68 775 76 776 86"/>
+    <path class="line" d="M728 100 L728 64 A20 20 0 0 1 768 64 L768 88"/>
   </g>
-  <!-- body fill first: covers the shackle leg bases so the open gap stays clean -->
-  <path class="body" d="M716 101 C 740 103 760 102 780 104 C 783 126 781 156 779 180 C 758 182 738 181 716 179 C 713 155 716 127 716 100 Z"/>
-  <!-- four sketch sides, each overshooting its corners like marker strokes -->
-  <path class="line" d="M712 103 C 738 100 760 102 784 104"/>
-  <path class="line" d="M781 99 C 783 126 780 156 781 184"/>
-  <path class="line" d="M784 181 C 758 184 738 183 712 183"/>
-  <path class="line" d="M715 187 C 713 158 715 128 714 98"/>
-  <path class="ghost" d="M719 105 C 742 106 762 105 783 107 M784 102 C 786 130 783 158 784 186 M786 184 C 760 187 741 186 715 186 M718 189 C 716 158 718 130 717 101"/>
-  <!-- keyhole: dot + short stem -->
-  <circle class="blue" cx="748" cy="140" r="5"/>
-  <path class="blue-fill" d="M745 140 L 751 140 L 749 152 L 747 152 Z"/>
+  <rect class="lockb" x="716" y="100" width="64" height="80" rx="10"/>
+  <circle class="blue" cx="748" cy="136" r="5"/>
+  <rect class="blue" x="746" y="136" width="4" height="14" rx="1.5"/>
 </g>
 
 <!-- keyword row -->
